@@ -9,7 +9,6 @@
   width: 100%;
   background: #2a3f5f;
   border-radius: 8px;
-  overflow: hidden;
   border: 2px solid #3a4f6f;
 }
 
@@ -25,7 +24,11 @@
   padding: 1.5rem;
   cursor: pointer;
   transition: background 0.2s;
-  position: relative;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  background: #2a3f5f;
+  z-index: 10;
 }
 
 .step-header:hover {
