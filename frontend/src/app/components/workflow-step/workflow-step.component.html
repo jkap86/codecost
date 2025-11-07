@@ -1,0 +1,27 @@
+<div class="workflow-item">
+  <div class="workflow-step">
+    <div class="step-header" (click)="onToggle()">
+      <span class="step-title">{{ step.title }}</span>
+      <span class="step-icon">{{ step.expanded ? '−' : '+' }}</span>
+    </div>
+    @if (step.expanded) {
+      <div class="step-content">
+        <div class="options-list">
+          @for (option of step.options; track option) {
+            <label class="option-item">
+              <input type="checkbox" [value]="option" class="option-checkbox" />
+              <span class="option-label">{{ option }}</span>
+            </label>
+          }
+        </div>
+      </div>
+    }
+  </div>
+  @if (!isLast) {
+    <div class="workflow-arrow">
+      <svg width="24" height="40" viewBox="0 0 24 40">
+        <path d="M12 0 L12 30 M12 30 L6 24 M12 30 L18 24" stroke="white" stroke-width="2" fill="none"/>
+      </svg>
+    </div>
+  }
+</div>

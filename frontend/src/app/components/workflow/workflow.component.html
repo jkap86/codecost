@@ -1,0 +1,15 @@
+<div class="workflow-container">
+  <div class="workflow-steps">
+    @for (step of steps; track step.id; let isLast = $last) {
+      <app-workflow-step
+        [step]="step"
+        [isLast]="isLast"
+        (toggle)="toggleStep($event)">
+      </app-workflow-step>
+    }
+  </div>
+
+  <div class="calculate-container">
+    <button class="calculate-button" (click)="onCalculate()">Calculate</button>
+  </div>
+</div>
