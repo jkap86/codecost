@@ -1,0 +1,39 @@
+<div class="dashboard-container">
+  <header class="dashboard-header">
+    <h1>Code Cost Dashboard</h1>
+  </header>
+
+  <main class="workflow-container">
+    <div class="workflow-steps">
+      @for (step of steps; track step.id; let isLast = $last) {
+        <div class="workflow-item">
+          <div class="workflow-step">
+            <div class="step-header" (click)="toggleStep(step)">
+              <span class="step-title">{{ step.title }}</span>
+              <span class="step-icon">{{ step.expanded ? '−' : '+' }}</span>
+            </div>
+            @if (step.expanded) {
+              <div class="step-content">
+                <input
+                  type="text"
+                  class="search-input"
+                  placeholder="Search for {{ step.title }}..."
+                />
+              </div>
+            }
+          </div>
+          @if (!isLast) {
+            <div class="workflow-arrow">
+              <svg width="24" height="40" viewBox="0 0 24 40">
+                <path d="M12 0 L12 30 M12 30 L6 24 M12 30 L18 24" stroke="white" stroke-width="2" fill="none"/>
+              </svg>
+            </div>
+          }
+        </div>
+      }
+    </div>
+  </main>
+</div>
+
+
+<router-outlet />
